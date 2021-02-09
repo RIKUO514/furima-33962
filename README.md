@@ -5,7 +5,7 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | nikename           | string              | null: false             |
-| email              | string              | unique: true            |
+| email              | string              | null: false             |
 | encrypted_password | string              | null: false             |
 | fist_name          | string              | null: false             |
 | list_name          | string              | null: false             |
@@ -37,13 +37,13 @@
 ### Association
 
 - belongs_to :user
-- has_one    :buyers
+- has_one    :buyer
 
 ## buyers
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| user        | references | foreign_key: tru  |
+| user        | references | foreign_key: true |
 | item        | references | foreign_key: true |
 
 ### Association
@@ -62,7 +62,7 @@
 | address            | string              | null: false             |
 | building           | string              |                         |
 | tel                | string              | null: false             |
-| buyers             | references          | foreign_key: true       |
+| buyer              | references          | foreign_key: true       |
 
 ### Association
 
