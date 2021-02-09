@@ -22,9 +22,8 @@
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
-| image                               | string     | null: false       |
 | name                                | string     | null: false       |
-| bescription                         | text       | null: false       |
+| description                         | text       | null: false       |
 | category_id                         | integer    | null: false       |
 | information_id                      | integer    | null: false       |
 | shipping_fee_id                     | integer    | null: false       |
@@ -58,7 +57,7 @@
 |--------------------|---------------------|-------------------------|
 | postal_code        | string              | null: false             |
 | prefectures_id     | integer             | null: false             |
-| municipalitise_id  | string              | null: false             |
+| municipality       | string              | null: false             |
 | address            | string              | null: false             |
 | building           | string              |                         |
 | tel                | string              | null: false             |
