@@ -5,13 +5,13 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | nikename           | string              | null: false             |
-| email              | string              | foreign_key: tru        |
-| password           | string              | null: false             |
-| fist_name          | text                | null: false             |
-| list_name          | text                | null: false             |
-| fist_name_kana     | text                | null: false             |
-| list_name_kana     | test                | null: false             |
-| birth_day          | string              | null: false             |
+| email              | string              | unique: true            |
+| encrypted_password | string              | null: false             |
+| fist_name          | string              | null: false             |
+| list_name          | string              | null: false             |
+| fist_name_kana     | string              | null: false             |
+| list_name_kana     | string              | null: false             |
+| birth_day          | date                | null: false             |
 
 ### Association
 
@@ -23,43 +23,47 @@
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
 | image                               | string     | null: false       |
-| name                                | text       | null: false       |
+| name                                | string     | null: false       |
 | bescription                         | text       | null: false       |
-| category_id                         | text       | null: false       |
-| information_id                      | text       | null: false       |
-| shipping_fee_id                     | text       | null: false       |
-| area_id                             | text       | null: false       |
-| days_id                             | text       | null: false       |
-| price                               | text       | null: false       |
+| category_id                         | integer    | null: false       |
+| information_id                      | integer    | null: false       |
+| shipping_fee_id                     | integer    | null: false       |
+| area_id                             | integer    | null: false       |
+| days_id                             | integer    | null: false       |
+| price                               | integer    | null: false       |
+| user                                | references | foreign_key: true |
 
 
 ### Association
 
-- belongs_to :users
-- belongs_to :buyers
+- belongs_to :user
+- has_one    :buyers
 
 ## buyers
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| user        | text       | null: false       |
-| purchased   | string     | foreign_key: true |
+| user        | references | foreign_key: tru  |
+| item        | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :items
-- belongs_to :users
-  belongs_to :buyer_address
+- belongs_to :item
+- belongs_to :user
+  has_one    :buyer_address
 
-## buyer_address
+## buyer_addresses
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | postal_code        | string              | null: false             |
-| prefectures        | string              | null: false             |
+| prefectures_id     | integer             | null: false             |
 | municipalitise_id  | string              | null: false             |
 | address            | string              | null: false             |
 | building           | string              |                         |
-| tel                | text                | null: false             |
+| tel                | string              | null: false             |
+| buyers             | references          | foreign_key: true       |
 
 ### Association
+
+belongs_to :buyer
