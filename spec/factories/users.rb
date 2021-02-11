@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :user do
    nikename         {'test'}
-   password         {'000000'}
+   email            {'abc@abc'}
+   password         {'aaa111'}
+   password_confirmation {password}
    fist_name        {'田中'}
    list_name        {'太郎'}
    fist_name_kana   {'タナカ'}
