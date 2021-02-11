@@ -3,8 +3,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          
+#with_options(?)を使用する  
 
-  validates :nikename,        presence: true
+  validates :nikename,        presence: true 
   validates :password,        presence: true
   validates :fist_name,       presence: true
   validates :list_name,       presence: true 
