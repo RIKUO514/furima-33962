@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context '' do
+    context 'ユーザー新規登録ができない時' do
  
       it'ニックネームが必須であること' do
         @user.nikename = ''
@@ -46,6 +46,12 @@ RSpec.describe User, type: :model do
         @user.password = ''
         @user.valid?
         expect(@user.errors.full_messages).to include  ("Password can't be blank")
+      end
+
+      it'パスワードが英語のみでは登録できないこと' do
+        @user.password = 'test'
+        @user.valid?
+        expect(@user.errors.full_messages).to include  ("Password confirmation doesn't match Password")
       end
   
       it'パスワードは、6文字以上での入力が必須であること（6文字が入力されていれば、登録が可能なこと）' do
@@ -114,7 +120,7 @@ RSpec.describe User, type: :model do
       end
   
       it'ユーザー名前のフリガナは、全角（カタカナ）での入力が必須であること' do
-        @user.list_name_kana = ''
+        @user.list_name_kana = 'abc'
         @user.valid?
         expect(@user.errors.full_messages).to include ("List name kana is invalid")
       end
