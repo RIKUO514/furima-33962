@@ -51,19 +51,21 @@ RSpec.describe User, type: :model do
       it'パスワードが英語のみでは登録できないこと' do
         @user.password = 'test'
         @user.valid?
-        expect(@user.errors.full_messages).to include  ("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include  ("Password Include both letters and numbers")
       end
   
       it'パスワードは、6文字以上での入力が必須であること（6文字が入力されていれば、登録が可能なこと）' do
-        @user.password = '1111111'
+        @user.password = '11111'
         @user.valid?
-        expect(@user.errors.full_messages).to include ("Password confirmation doesn't match Password")
+        
+        expect(@user.errors.full_messages).to include ("Password is too short (minimum is 6 characters)")
       end
   
       it'パスワードは、半角英数字混合での入力が必須であること（半角英数字が混合されていれば、登録が可能なこと）' do
         @user.password = '1111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include ("Password confirmation doesn't match Password")
+
+        expect(@user.errors.full_messages).to include ("Password Include both letters and numbers")
       end
   
   
@@ -124,6 +126,20 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include ("List name kana is invalid")
       end
+
+      it'ユーザー名字のフリガナは、カタカナ以外の全角文字だと登録できないこと' do
+        @user.fist_name_kana = 'abc'
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("Fist name kana is invalid")
+      end
+  
+      it'ユーザー名前のフリガナは、カタカナ以外の全角文字だと登録できないこと' do
+        @user.list_name_kana = 'abc'
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("List name kana is invalid")
+      end
+
+
       it'生年月日が必須であること' do
         @user.birth_day = ''
         @user.valid?
