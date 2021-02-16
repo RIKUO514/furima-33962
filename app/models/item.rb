@@ -8,7 +8,6 @@ class Item < ApplicationRecord
   validates :name
   validates :description
   validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
-  validates :user
   validates :category_id
   validates :information_id
   validates :shipping_fee_id
