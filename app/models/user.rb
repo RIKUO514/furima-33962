@@ -2,6 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
          
   with_options presence: true do
 
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   validates :list_name         
   end
 
-with_options format: { with: /[ァ-ヶー－]+/} do
+  with_options format: { with: /[ァ-ヶー－]+/} do
   validates :fist_name_kana
   validates :list_name_kana    
   end      
@@ -23,3 +24,7 @@ with_options format: { with: /[ァ-ヶー－]+/} do
 
   end
 end
+
+
+
+
