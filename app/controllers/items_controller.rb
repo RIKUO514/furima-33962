@@ -22,17 +22,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
   end
 
   def edit
-  
   end
 
   def update
-    if @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to item_path
+  if @item.update(item_params)
+     redirect_to item_path(@item)
   else
     render :edit
   end
