@@ -1,14 +1,18 @@
 class BuyersController < ApplicationController
 
+  before_action :authenticate_user!, only:[:index]
+  before_action :set_item, only: [:index, :create]
+  before_action :contributor_confirmation, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
+ 
     @buyers_address = BuyersAddress.new
   end
 
  
 
   def create
-   @item = Item.find(params[:item_id])
+  
    @buyers_address = BuyersAddress.new(buyers_address_params)
    
    if @buyers_address.valid?
@@ -36,4 +40,14 @@ class BuyersController < ApplicationController
     currency: 'jpy'               
   )
 end
+
+def set_item
+  @item = Item.find(params[:item_id])
+end
+
+def contributor_confirmation
+  redirect_to root_path if current_user == @item.user
+  redirect_to root_path if @item.buyer.present?
+end
+
 end
