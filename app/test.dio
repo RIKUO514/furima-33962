@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-18T09:03:46.626Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="UNg0AEl2XI8rQ-TqS3wJ" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-23T02:36:14.676Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.2 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="nteslSz-NXOJH2uYOpQn" version="14.2.4" type="embed">
     <diagram id="UqbalIDC6eISbT-_bTEj" name="ページ1">
         <mxGraphModel dx="1256" dy="381" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -31,7 +31,7 @@
                 <mxCell id="32" value="address (購入者情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="360" y="278" width="240" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="postal_cobe(郵便番号)&#10;prefectures(都道府県)&#10;municipalities(市町村)&#10;address(番地)&#10;building(建物)&#10;tel(電話番号)&#10;buyer(購入者)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="32" vertex="1">
+                <mxCell id="33" value="postal_code(郵便番号)&#10;prefectures(都道府県)&#10;municipalities(市町村)&#10;address(番地)&#10;building(建物)&#10;tel(電話番号)&#10;buyer(購入者)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="32" vertex="1">
                     <mxGeometry y="26" width="240" height="114" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.01;entryY=0.309;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;strokeColor=#f0f0f0;strokeWidth=1;" parent="1" source="29" target="33" edge="1">
