@@ -10,6 +10,7 @@ class BuyersAddress
     validates :tel, format:{ with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/ }
     validates :token
   end
+  
 
   def save
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
