@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe BuyersAddress, type: :model do
 
   before do
+
     @buyers_address = FactoryBot.build(:buyers_address)
 
+    
   end
 
   describe '商品購入内容確認' do
@@ -13,9 +15,31 @@ RSpec.describe BuyersAddress, type: :model do
       it 'FactoryBotが機能しているのか' do
         expect(@buyers_address).to be_valid
       end
+
+      it '建物名が抜けていても登録ができる' do
+        expect(@buyers_address).to be_valid
+      end
+
     end
 
     context '商品購入内容が確認できない時' do
+
+
+      it 'item_idがないと登録できないこと' do
+        @buyers_address.item_id = nil
+        @buyers_address.valid?
+        expect(@buyers_address.errors.full_messages).to include ("Item can't be blank")
+      end
+
+
+      it 'user_idがないと登録できないこと' do
+        @buyers_address.user_id = nil
+        @buyers_address.valid?
+        expect(@buyers_address.errors.full_messages).to include ("User can't be blank")
+      end
+
+
+
 
       it '郵便番号が必須であること' do
         @buyers_address.postal_code = nil
@@ -40,6 +64,14 @@ RSpec.describe BuyersAddress, type: :model do
         @buyers_address.valid?
         expect(@buyers_address.errors.full_messages).to include ("Prefectures is not a number")
       end
+
+      it '都道府県のIDが「1」意外登録できないこと' do
+        @buyers_address.prefectures_id= "1"
+        @buyers_address.valid?
+    
+        expect(@buyers_address.errors.full_messages).to include ("Prefectures must be other than 1")
+      end
+
 
       it '市区町村が必須であること' do
         @buyers_address.municipalities=  nil
@@ -79,10 +111,3 @@ RSpec.describe BuyersAddress, type: :model do
   end
  end
 end
-
-
-
-
-
-
-
