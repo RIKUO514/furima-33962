@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe BuyersAddress, type: :model do
 
   before do
-
-    @buyers_address = FactoryBot.build(:buyers_address)
-
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @buyers_address = FactoryBot.build(:buyers_address, user_id: user.id, item_id: item.id)
+    sleep(1)
     
   end
 
