@@ -46,8 +46,8 @@ def set_item
 end
 
 def contributor_confirmation
-  redirect_to root_path if current_user == @item.user
-  redirect_to root_path if @item.buyer.present?
+  redirect_to root_path if current_user == @item.user if @item.buyer.present?
+
 end
 
 end
