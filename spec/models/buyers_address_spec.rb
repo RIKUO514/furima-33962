@@ -67,7 +67,7 @@ RSpec.describe BuyersAddress, type: :model do
       end
 
       it '都道府県のIDが「1」意外登録できないこと' do
-        @buyers_address.prefectures_id= "1"
+        @buyers_address.prefectures_id=  1
         @buyers_address.valid?
     
         expect(@buyers_address.errors.full_messages).to include ("Prefectures must be other than 1")

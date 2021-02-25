@@ -7,7 +7,7 @@ class BuyersAddress
     validates :prefectures_id, numericality: { other_than: 1 }
     validates :municipalities
     validates :address 
-    validates :tel, format:{ with: /\A0[5789]0[-]?\d{4}[-]?\d{4}\z/ }
+    validates :tel, format:{ with: /\A\d{11}\z/ }
     validates :token
     validates :user_id
     validates :item_id
