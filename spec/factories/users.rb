@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
    nikename         {'test'}
-   email            {'abc@abc'}
+   email            {Faker::Internet.free_email}
    password         {'aaa111'}
    password_confirmation {password}
    fist_name        {'田中'}
@@ -9,5 +9,6 @@ FactoryBot.define do
    fist_name_kana   {'タナカ'}
    list_name_kana   {'タロウ'}
    birth_day        {'1996-05-14'}
+   
   end
 end
